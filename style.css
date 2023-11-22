@@ -1,0 +1,78 @@
+html,
+body,
+.app-wrapper {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --Layout-brand-bg: rgb(31,46,84);
+    --Layout-aside-bg: rgb(31,46,84);
+    --Layout-aside-subList-bg: rgb(31,46,84);
+    --Layout-aside-onAcitve-bg: linear-gradient(90deg, #634FFF 0%, #3DA8FF 100%);
+
+
+
+    --Layout-aside-color: #fff;
+    --Layout-asideLabel-color: #fff;
+    --Layout-asideLink-onActive-color: #fff;
+    --fontSizeXs:14px;
+    --Layout-asideLink-fontSize: 14px;
+    --fontFamilyBase:  -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', 'Helvetica Neue', Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+}
+
+.cxd-AsideNav-itemIcon {
+    float: none !important;
+}
+
+.cxd-Layout-headerBar {
+    display: flex;
+    justify-content: space-between;
+}
+
+.input-percent {
+    margin:0 10px !important;
+}
+
+.work-order-select {
+    width: 130px;
+    text-align: left !important;
+}
+
+.workorder-approve-form {
+    width: 800px;
+}
+
+.cxd-Table-table .cxd-Select.is-disabled {
+    border: none;
+    background: rgba(0,0,0,0);
+    padding: 0;
+}
+
+.cxd-Table-table .cxd-Select-value.is-disabled {
+    color: var(--Table-color);
+}
+
+.cxd-Table-table .cxd-Select.is-disabled .cxd-Select-arrow {
+    display: none;
+}
+
+.hidden-select .cxd-Select.is-disabled {
+    border: none;
+    background: rgba(0,0,0,0);
+}
+
+.hidden-select .cxd-Select-value.is-disabled {
+    color: var(--Table-color);
+}
+
+.hidden-select .cxd-Select.is-disabled .cxd-Select-arrow {
+    display: none;
+}
+
+.header-item:hover {
+    cursor: pointer;
+}

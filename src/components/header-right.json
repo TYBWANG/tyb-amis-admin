@@ -1,0 +1,244 @@
+{
+    "type": "container",
+    "body": [
+      {
+        "type": "icon",
+        "icon": "fas fa-history",
+        "vendor": "",
+        "onEvent": {
+            "click": {
+              "actions": [
+                {
+                    "actionType": "dialog",
+                    "dialog": {
+                      "id": "dialog_history",
+                      "title": "历史登录信息（最近5次）",
+                      "body": {
+                        "type": "service",
+                        "api": "user/loginLog",
+                        "body": [
+                          {
+                            "type": "table",
+                            "source": "$rows",
+                            "columns": [
+                              {
+                                "name": "createTime",
+                                "label": "登录时间"
+                              },
+                              {
+                                "name": "ip",
+                                "label": "IP地址"
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      "actions": [
+                          {
+                            "type": "button",
+                            "label": "关闭",
+                            "onEvent": {
+                              "click": {
+                                "actions": [
+                                  {
+                                    "actionType": "cancel",
+                                    "componentId": "dialog_history"
+                                  }
+                                ]
+                              }
+                            }
+                          }
+                        ]
+                    }
+                }
+              ]
+            }
+        },
+        "id": "u:0bc8eebf979e",
+        "themeCss": {
+          "className": {
+            "padding-and-margin:default": {
+              "marginTop": "20px",
+              "marginRight": "20px",
+              "marginBottom": "20px",
+              "marginLeft": "20px"
+            }
+          }
+        },
+        "className": "className-0bc8eebf979e"
+      },
+      {
+        "type": "icon",
+        "icon": "far fa-question-circle",
+        "vendor": "",
+        "onEvent": {
+            "click": {
+              "actions": [
+                {
+                  "actionType": "dialog",
+                  "dialog": {
+                    "id": "dialog_info",
+                    "title": "帮助信息",
+                    "body": {
+                        "type": "container",
+                        "body": [
+                          {
+                            "type": "link",
+                            "value": "http://www.baidu.com/",
+                            "id": "u:37011da1cfcf",
+                            "body": "操作文档",
+                            "blank": true
+                          },
+                          {
+                            "type": "tpl",
+                            "tpl": "客服热线：xxxxxxxx",
+                            "inline": false,
+                            "wrapperComponent": "",
+                            "id": "u:202e403c89b8",
+                            "style": {
+                              "marginTop": "20px",
+                              "fontWeight": "500"
+                            }
+                          }
+                        ],
+                        "style": {
+                          "position": "static",
+                          "display": "flex",
+                          "flexWrap": "nowrap",
+                          "flexDirection": "column",
+                          "alignItems": "center"
+                        },
+                        "wrapperBody": false,
+                        "id": "u:1ccfd15ceb79",
+                        "isFixedHeight": false,
+                        "isFixedWidth": false
+                      },
+                    "actions": [
+                        {
+                          "type": "button",
+                          "label": "关闭",
+                          "onEvent": {
+                            "click": {
+                              "actions": [
+                                {
+                                  "actionType": "cancel",
+                                  "componentId": "dialog_info"
+                                }
+                              ]
+                            }
+                          }
+                        }
+                      ]
+                  }
+                }
+              ]
+            }
+        },
+        "id": "u:cb5401c5d25f",
+        "themeCss": {
+          "className": {
+            "padding-and-margin:default": {
+              "marginTop": "20px",
+              "marginRight": "20px",
+              "marginBottom": "20px",
+              "marginLeft": "20px"
+            }
+          }
+        },
+        "className": "className-cb5401c5d25f"
+      },
+      {
+        "type": "button",
+        "body": [
+          {
+            "type": "avatar",
+            "showtype": "image",
+            "icon": "fa fa-user",
+            "fit": "cover",
+            "style": {
+              "width": 40,
+              "height": 40,
+              "borderRadius": 20,
+              "marginTop": "10px",
+              "marginBottom": "10px",
+              "marginLeft": "10px",
+              "marginRight": "10px"
+            },
+            "id": "u:64d2b15e6275"
+          },
+          {
+            "type": "tpl",
+            "tpl": "${userInfo.realname||''}",
+            "inline": true,
+            "wrapperComponent": "",
+            "id": "u:25ae71b9e40d"
+          }
+        ],
+        "style": {
+          "position": "static",
+          "display": "flex",
+          "flex": "0 0 auto",
+          "flexWrap": "nowrap",
+          "alignItems": "center"
+        },
+        "actionType": "dialog",
+        "dialog": {
+          "id":"dialog_user",
+          "title": "${userInfo.realname||''}",
+          "body": {
+            "type": "form",
+            "static": true,
+            "api": "",
+            "body": [
+              {
+                "type": "input-text",
+                "name": "userId",
+                "value": "${userInfo.username}",
+                "label": "账号"
+              }
+            ]
+          },
+          "actions": [
+            {
+                "label": "退出",
+                "actionType": "ajax",
+                "primary": true,
+                "type": "button",
+                "api": {
+                    "method": "get",
+                    "url": "/logout",
+                    "adaptor": "if(payload.code===200){\n location.href = location.origin + '/login'\n localStorage.clear() \n}\n return payload "
+                }
+            },
+            {
+              "type": "button",
+              "label": "关闭",
+              "onEvent": {
+                "click": {
+                  "actions": [
+                    {
+                      "actionType": "cancel",
+                      "componentId": "dialog_user"
+                    }
+                  ]
+                }
+              }
+            }
+          ]
+        },
+        "wrapperBody": false,
+        "id": "u:93fa950f3c5b",
+        "isFixedHeight": false
+      }
+    ],
+    "style": {
+      "position": "static",
+      "display": "flex",
+      "flexWrap": "nowrap",
+      "alignItems": "center"
+    },
+    "wrapperBody": false,
+    "id": "u:6e372151ec64",
+    "isFixedHeight": false,
+    "isFixedWidth": false
+  }

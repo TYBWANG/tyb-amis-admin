@@ -1,0 +1,21 @@
+{
+    "status": 0,
+    "msg": "",
+    "data": {
+        "pages": [
+            {
+                "label": "",
+                "url": "/demo",
+                "icon": "fas fa-yen-sign",
+                "redirect": "/demo/list",
+                "children": [
+                    {
+                        "label": "demo-list",
+                        "url": "list",
+                        "schemaApi": "get:/pages/demo-list.json"
+                    }
+                ]
+            }
+        ]
+    }
+}
